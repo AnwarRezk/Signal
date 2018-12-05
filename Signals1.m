@@ -32,6 +32,7 @@ for i=1:1:(n+1)
     %hold on;
   %  typex = menu('Available Signals','impulse','DC','ramp','parabola','exp','sinusoid','triang');
     type = input('Enter type of signal : ');
+        %impulse
         if type == 1
             amp = input('Enter impulse amplitude : ');
             t = tx(i):1/fs:tx(i+1);
@@ -48,6 +49,7 @@ for i=1:1:(n+1)
             subplot(3,1,2);
             plot(abs(ff));
             hold on;
+        %DC
         elseif type == 2
                  amp = input('Enter DC amplitude : ');
                  t = tx(i):1/fs:tx(i+1); 
@@ -66,7 +68,8 @@ for i=1:1:(n+1)
                  plot(abs(ff));
                  grid on;
                  hold on;
-        elseif type == 3
+         %Ramp        
+         elseif type == 3
                 s = input('Enter ramp slope : ');
                 t = tx(i):1/fs:tx(i+1);
                 t1 = linspace(tx(i),tx(i+1),400);
@@ -84,6 +87,7 @@ for i=1:1:(n+1)
                 plot(abs(ff));
                 grid on;
                 hold on;
+        %Parabola        
         elseif type == 4
                  amp = input('Enter parabola amplitude : ');
                  t = tx(i):1/fs:tx(i+1);
@@ -102,6 +106,7 @@ for i=1:1:(n+1)
                  plot(abs(ff));
                  grid on;
                  hold on;
+        %Exponential         
         elseif type == 5
                   amp = input('Enter exponential amplitude : ');
                   alpha = input('Enter the exponent : ');
@@ -121,7 +126,8 @@ for i=1:1:(n+1)
                   plot(abs(ff));
                   grid on;
                   hold on;
-        elseif type == 6       
+         %Sinusoid         
+         elseif type == 6       
                   amp = input('Enter sinusoid amplitude : ');
                   f = input('Enter sinusoid frequency : ');
                   theta = input('Enter phase angle : ');
@@ -141,7 +147,8 @@ for i=1:1:(n+1)
                   subplot(3,1,2);
                   plot(abs(ff));
                   grid on;
-                  hold on;     
+                  hold on;
+         %Triangular         
          elseif type == 7  
                   amp = input('Enter sawtooth amplitude : ');
                   f = input('Enter sawtooth frequency : ');
@@ -166,11 +173,12 @@ for i=1:1:(n+1)
         else
             disp('Error');
         end
+        
     d1 = subplot(3,1,1);
     d2 = subplot(3,1,2);
     d3 = subplot(3,1,3);
     subplot(3,1,3);
-    plot(tt,fn);
+    plot(tt,fn); %plot the concatenated signal
     grid on;
     ylim(d1,[-50 50]);
     xlabel(d1,'t')
