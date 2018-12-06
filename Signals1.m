@@ -44,7 +44,8 @@ for i=1:1:(n+1)
             amp = input('Enter impulse amplitude : ');
             t = tx(i):1/fs:tx(i+1);
             t1 = linspace(tx(i),tx(i+1));
-            impulse = (t1-(tx(i+1)\2))==0;
+            s = input('Enter impulse shift : ');
+            impulse = amp*(t1==s);
             subplot(3,1,1);
             stem(t1,impulse); 
             tt = [tt t1];
