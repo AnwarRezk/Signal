@@ -13,16 +13,23 @@ n = input('Enter number of breakpoints : ');
 
 disp('--------------------------');
 
-tx = 1*(2*n);%array for time(rows x columns) 
-for i=1:1:(2*n-(n-2))
-    tx(i) = input('Enter position of breakpoint  : ');
-   if tx(i) < tS
-        tx(i) = tS;
+tTemp = 2*n;
+for i=1:1:n
+    tTemp(i) = input('Enter position of breakpoint  : ');
+   if tTemp(i) < tS
+        tTemp(i) = tS;
    end
-    if tx(i) > tE 
-        tx(i) = tE;
+    if tTemp(i) > tE 
+        tTemp(i) = tE;
     end
 end 
+tx(1)=tS;
+tx(n+2)=tE;
+
+for i=2:1:(n+1)
+    
+   tx(i)=tTemp(i-1); 
+end
 
 disp('--------------------------');
 fn = [];
